@@ -7,6 +7,7 @@
   "extends": [
     "plugin:unicorn/all",
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ]
 }
