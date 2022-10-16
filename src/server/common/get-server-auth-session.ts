@@ -5,9 +5,13 @@ import { unstable_getServerSession } from "next-auth";
 import { authOptions as nextAuthOptions } from "../../pages/api/auth/[...nextauth]";
 
 // Next API route example - /pages/api/restricted.ts
-export const getServerAuthSession = async (ctx: {
+export const getServerAuthSession = async (context: {
   req: GetServerSidePropsContext["req"];
   res: GetServerSidePropsContext["res"];
 }) => {
-  return await unstable_getServerSession(ctx.req, ctx.res, nextAuthOptions);
+  return await unstable_getServerSession(
+    context.req,
+    context.res,
+    nextAuthOptions
+  );
 };

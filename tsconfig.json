@@ -14,7 +14,6 @@
     "moduleResolution": "node",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
     "pretty": true,
     "resolveJsonModule": true,
@@ -23,6 +22,12 @@
     "strict": true,
     "target": "es5"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"],
+  "include": [
+    "next-environment.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs"
+  ],
   "exclude": ["node_modules"]
 }

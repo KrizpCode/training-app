@@ -3,16 +3,19 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getServerAuthSession } from "../../server/common/get-server-auth-session";
 
-const restricted = async (req: NextApiRequest, res: NextApiResponse) => {
-  const session = await getServerAuthSession({ req, res });
+const restricted = async (
+  request: NextApiRequest,
+  response: NextApiResponse
+) => {
+  const session = await getServerAuthSession({ req: request, res: response });
 
   if (session) {
-    res.send({
+    response.send({
       content:
         "This is protected content. You can access this content because you are signed in.",
     });
   } else {
-    res.send({
+    response.send({
       error:
         "You must be signed in to view the protected content on this page.",
     });

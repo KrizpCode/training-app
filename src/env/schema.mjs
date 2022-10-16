@@ -12,9 +12,9 @@ export const serverSchema = z.object({
   NEXTAUTH_URL: z.preprocess(
     // This makes Vercel deployments not fail if you don't set NEXTAUTH_URL
     // Since NextAuth automatically uses the VERCEL_URL if present.
-    (str) => process.env.VERCEL_URL ?? str,
+    (string_) => process.env.VERCEL_URL ?? string_,
     // VERCEL_URL doesnt include `https` so it cant be validated as a URL
-    process.env.VERCEL ? z.string() : z.string().url(),
+    process.env.VERCEL ? z.string() : z.string().url()
   ),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
@@ -35,6 +35,6 @@ export const clientSchema = z.object({
  * and only used environment variables are included in the build.
  * @type {{ [k in keyof z.infer<typeof clientSchema>]: z.infer<typeof clientSchema>[k] | undefined }}
  */
-export const clientEnv = {
+export const schemaEnvironment = {
   // NEXT_PUBLIC_BAR: process.env.NEXT_PUBLIC_BAR,
 };
